@@ -23,12 +23,17 @@ int main(int argc, char **argv){
   double tf=100.0;
   double npuntos=(tf-t0)/(2*PI*gamma*m/(e*Bo));
 
+//Conversion de unidades
+
+  float radianes=(alpha*PI)/180;
+  float Ec_jul=(1.60217733*(10*(10**(-13)))*Ec0)/1;
+
 }
 
 double funcion1(double x, double y, double z, double x_prima, double y_prima, double z_prima, double gm){
 
   double r=pow(x,2)+pow(y,2)+pow(z,2);
-  double func1=e*(-Bo*(pow(Rt,3)))*(z_prima*(3*y*z)-x_prima*(2*z*(z-x)*(x-y)*y))/(m*gama*pow(r,5.0/2.0));
+  double func1=e*(-Bo*(pow(Rt,3)))*(y_prima*(2*z*(z-x)*(x-y)*y)-z_prima*(3*y*z))/(m*gama*pow(r,5.0/2.0));
   return func1; 
 
 }
@@ -43,7 +48,7 @@ double funcion2(double x, double y, double z, double x_prima, double y_prima, do
 double funcion3(double x, double y, double z, double x_prima, double y_prima, double z_prima, double gm){
 
   double r=pow(x,2)+pow(y,2)+pow(z,2);
-  double func3=e*(-Bo*(pow(Rt,3)))*(z_prima*(3*x*z)-x_prima*(2*z*(z-x)*(x-y)*y))/(m*gama*pow(r,5.0/2.0));
+  double func3=e*(-Bo*(pow(Rt,3)))*(x_prima*(3*y*z)-y_prima*(3*x*z))/(m*gama*pow(r,5.0/2.0));
   return func3;
 }
 
